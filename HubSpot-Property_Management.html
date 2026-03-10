@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HubSpot Workflow & Automation Plan | Property Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06111f;--panel:rgba(10,18,33,.72);--line:rgba(255,255,255,.08);--text:#eef5ff;--muted:#a9bdd8;--blue:#68cfff;--violet:#7a6cff;--green:#47efc8;--shadow:0 25px 80px rgba(0,0,0,.42);--max:1240px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 20% 20%, rgba(104,207,255,.12), transparent 30%),radial-gradient(circle at 85% 10%, rgba(122,108,255,.12), transparent 28%),radial-gradient(circle at 50% 85%, rgba(71,239,200,.09), transparent 26%),linear-gradient(180deg,#05101c 0%,#07111f 55%,#050c16 100%);overflow-x:hidden}
+.grid,.glow,.noise{position:fixed;inset:0;pointer-events:none;z-index:0}.grid{opacity:.34;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(circle at center, black 35%, transparent 88%)}.glow:before,.glow:after{content:"";position:absolute;width:42vw;height:42vw;border-radius:50%;filter:blur(100px);opacity:.18}.glow:before{left:-10vw;top:-8vw;background:#4cd5ff}.glow:after{right:-12vw;top:10vh;background:#7868ff}.noise{opacity:.04;background-image:radial-gradient(#fff .6px,transparent .6px);background-size:10px 10px;mix-blend-mode:soft-light}
+.container{width:min(var(--max),calc(100vw - 32px));margin:0 auto;position:relative;z-index:2}
+header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(4,9,17,.8),rgba(4,9,17,.42));backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}.brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:-.03em}.brand-mark{width:42px;height:42px;border-radius:14px;position:relative;background:linear-gradient(135deg,rgba(104,207,255,.22),rgba(122,108,255,.25));box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 10px 28px rgba(104,207,255,.14)}.brand-mark:before,.brand-mark:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.24);border-radius:12px;inset:8px;transform:rotate(12deg)}.brand-mark:after{inset:13px;transform:rotate(-12deg)}.nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.nav-links a{padding:10px 14px;border-radius:999px;color:var(--muted);font-size:14px;text-decoration:none;border:1px solid transparent}.nav-links a:hover{color:#fff;border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+section{padding:92px 0;position:relative;z-index:2}.hero{min-height:100vh;display:grid;align-items:center;padding:34px 0 74px}.hero-wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#cae1ff}.dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));box-shadow:0 0 18px rgba(71,239,200,.7)}
+h1{font-size:clamp(3.2rem,7vw,6.1rem);line-height:.94;letter-spacing:-.065em;margin:18px 0 18px;max-width:900px}.gradient{background:linear-gradient(135deg,#fff 0%,#bee6ff 35%,#8dd4ff 58%,#a89eff 82%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:clamp(1rem,1.8vw,1.14rem);line-height:1.8;max-width:720px;margin:0 0 28px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.08);font-weight:700;letter-spacing:-.02em;text-decoration:none;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18)}.btn.primary{color:#04101b;background:linear-gradient(135deg,var(--blue),#9bf4ff);box-shadow:0 10px 38px rgba(104,207,255,.28)}.btn.secondary{background:rgba(255,255,255,.04)}
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;max-width:760px}.metric,.glass{background:var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(16px)}.metric{padding:16px 18px}.metric .value{font-size:clamp(1.3rem,2vw,2rem);font-weight:900;letter-spacing:-.05em;margin-bottom:6px}.metric .label{font-size:13px;color:var(--muted);line-height:1.5}
+.hero-visual{min-height:640px;display:flex;align-items:center;justify-content:center;position:relative}.canvas-card{position:relative;width:min(100%,560px);aspect-ratio:1/1.08;border-radius:32px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(10,22,40,.96),rgba(5,12,22,.92));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.07)}#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.floating-ui{position:absolute;inset:0;pointer-events:none}.float-card{position:absolute;padding:14px 16px;border-radius:20px;background:rgba(6,15,29,.68);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px);box-shadow:0 12px 38px rgba(0,0,0,.3);animation:drift 6s ease-in-out infinite}.float-card:nth-child(2){animation-delay:-2s}.float-card:nth-child(3){animation-delay:-4s}.float-title{font-size:13px;font-weight:800;margin-bottom:8px}.float-copy{font-size:12px;color:var(--muted);line-height:1.5}.mini-bar{width:154px;height:8px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:8px}.mini-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green))}@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}.kicker{display:block;color:#a8deff;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}h2{margin:0;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:-.05em;max-width:860px}.section-copy{color:var(--muted);line-height:1.8;max-width:660px;margin:12px 0 0}
+.grid-2,.grid-3,.workflow-grid,.dashboard-grid{display:grid;gap:20px}.grid-2{grid-template-columns:1.2fr .8fr}.grid-3{grid-template-columns:repeat(3,1fr)}.workflow-grid{grid-template-columns:1.06fr .94fr}.dashboard-grid{grid-template-columns:1fr 1fr}
+.card{padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;right:-30px;top:-30px;width:170px;height:170px;background:radial-gradient(circle,rgba(104,207,255,.14),transparent 70%);pointer-events:none}.card h3{margin:0 0 10px;font-size:1.22rem;letter-spacing:-.03em}.card p,.card li{color:var(--muted);line-height:1.72}
+.badge-row,.chip-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.badge,.chip{padding:10px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.02em}.badge{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#dfeeff}.chip{background:rgba(104,207,255,.08);border:1px solid rgba(104,207,255,.16);color:#def7ff}
+.vertical-flow{display:grid;gap:16px}.flow-step{position:relative;padding:18px 18px 18px 66px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.flow-step:before{content:attr(data-step);position:absolute;left:18px;top:18px;width:34px;height:34px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(104,207,255,.2),rgba(122,108,255,.24));border:1px solid rgba(255,255,255,.12);font-weight:900}.flow-step strong{display:block;margin-bottom:8px;font-size:1rem;letter-spacing:-.02em}
+.timeline{position:relative;padding-left:24px}.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),rgba(255,255,255,.08))}.timeline-item{position:relative;padding:0 0 22px 18px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;left:-2px;top:5px;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--blue));box-shadow:0 0 22px rgba(104,207,255,.35)}.timeline-label{font-size:12px;font-weight:900;letter-spacing:.12em;color:#a8deff;text-transform:uppercase;margin-bottom:8px}
+details{border-radius:22px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);overflow:hidden}summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:800;display:flex;justify-content:space-between;gap:18px;align-items:center}summary::-webkit-details-marker{display:none}.content{padding:0 22px 22px;color:var(--muted);line-height:1.8}
+.matrix{display:grid;gap:16px}.matrix-row{display:grid;grid-template-columns:220px 1fr;gap:16px}.matrix-title,.matrix-body{padding:18px;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}.matrix-title{font-weight:800;display:flex;align-items:center}
+.kpi-wall{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}.kpi{padding:20px;border-radius:22px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}.kpi .num{font-size:2.2rem;font-weight:900;letter-spacing:-.06em;margin-bottom:8px}
+.funnel{display:grid;gap:12px;margin-top:12px}.funnel-stage{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:16px 18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.funnel-stage:nth-child(1){width:100%}.funnel-stage:nth-child(2){width:88%}.funnel-stage:nth-child(3){width:76%}.funnel-stage:nth-child(4){width:64%}.funnel-stage:nth-child(5){width:52%}.funnel-stage em{font-style:normal;color:#e4f1ff;font-weight:700}
+.bar-chart{display:flex;align-items:end;gap:12px;height:220px;padding:18px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);margin-top:14px}.bar{flex:1;min-width:24px;position:relative;border-radius:16px 16px 8px 8px;background:linear-gradient(180deg,rgba(122,108,255,.95),rgba(104,207,255,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 10px 28px rgba(104,207,255,.12)}.bar span{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:#edf6ff}.bar-labels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px;color:var(--muted);font-size:12px;text-align:center}
+.cta{padding:34px}ul.clean{margin:0;padding-left:18px}.footer{padding:30px 0 80px;color:var(--muted);text-align:center}.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+@media (max-width:1100px){.hero-wrap,.grid-2,.workflow-grid,.dashboard-grid,.grid-3{grid-template-columns:1fr}.hero-visual{min-height:520px}}
+@media (max-width:760px){.nav{flex-direction:column;align-items:start}.nav-links{justify-content:start}.hero{min-height:auto;padding-top:24px}.hero-metrics,.kpi-wall{grid-template-columns:1fr}.matrix-row{grid-template-columns:1fr}.canvas-card{aspect-ratio:1/1.12}h1{line-height:1}.funnel-stage{width:100%!important}.bar-chart{height:180px}}
+</style>
+</head>
+<body>
+<div class="grid"></div><div class="glow"></div><div class="noise"></div>
+
+<header>
+  <div class="container nav">
+    <div class="brand"><span class="brand-mark"></span><span>Property Management Workflow Plan</span></div>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#dashboards">Dashboards</a>
+      <a href="#implementation">Implementation</a>
+      <a href="#next">Next Steps</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-wrap">
+    <div class="reveal visible">
+      <span class="eyebrow"><span class="dot"></span> HubSpot automation plan for real estate property management</span>
+      <h1><span class="gradient">A scalable HubSpot system</span> for leasing, maintenance, renewals, and owner communication.</h1>
+      <p>This plan is designed for a property management business that needs faster lead response, cleaner handoffs, stronger tenant communication, structured maintenance operations, and clear visibility across leasing and retention. The goal is to turn HubSpot into a reliable operating layer for both growth and day-to-day execution.</p>
+      <div class="actions"><a class="btn primary" href="#overview">View Proposal</a><a class="btn secondary" href="#next">Next Steps</a></div>
+      <div class="hero-metrics">
+        <div class="metric"><div class="value">12+</div><div class="label">Core workflows across leasing, onboarding, service, and renewals</div></div>
+        <div class="metric"><div class="value">360°</div><div class="label">Visibility across leads, tenants, owners, properties, units, and vendors</div></div>
+        <div class="metric"><div class="value">24/7</div><div class="label">Automated response, routing, reminders, and operational follow-through</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="canvas-card glass">
+        <canvas id="scene"></canvas>
+        <div class="floating-ui">
+          <div class="float-card" style="top:10%;left:6%"><div class="float-title">Leasing Pipeline</div><div class="float-copy">Inquiry → qualification → viewing → application → signed lease</div><div class="mini-bar"><span style="width:88%"></span></div></div>
+          <div class="float-card" style="top:18%;right:6%"><div class="float-title">Maintenance Workflow</div><div class="float-copy">Priority routing, SLA tracking, vendor assignment, status updates</div><div class="mini-bar"><span style="width:76%;background:linear-gradient(90deg,var(--violet),var(--blue))"></span></div></div>
+          <div class="float-card" style="bottom:9%;left:10%"><div class="float-title">Owner Visibility</div><div class="float-copy">Occupancy, active issues, lease renewals, communication coverage</div><div class="mini-bar"><span style="width:92%;background:linear-gradient(90deg,var(--green),var(--blue))"></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="kicker">Business Objectives</span><h2>What the HubSpot system should solve for your property management team.</h2></div>
+      <p class="section-copy">The system should reduce response delays, standardize communication, improve leasing conversion, organize maintenance activity, protect renewals, and give leadership one clear operational view.</p>
+    </div>
+    <div class="grid-2">
+      <div class="glass card reveal">
+        <h3>Operational Priorities</h3>
+        <div class="matrix">
+          <div class="matrix-row"><div class="matrix-title">Lead Response</div><div class="matrix-body">Capture leasing and owner inquiries from every source, route them instantly, and trigger structured follow-up without manual delay.</div></div>
+          <div class="matrix-row"><div class="matrix-title">Tenant Experience</div><div class="matrix-body">Guide prospects and residents through tours, applications, onboarding, maintenance communication, and renewal touchpoints with consistency.</div></div>
+          <div class="matrix-row"><div class="matrix-title">Maintenance Operations</div><div class="matrix-body">Triage issues by urgency, assign internally or to vendors, track SLA windows, and automate status updates to reduce chasing and missed follow-through.</div></div>
+          <div class="matrix-row"><div class="matrix-title">Owner Reporting</div><div class="matrix-body">Provide structured visibility into occupancy, leasing activity, open issues, and renewal pipeline so communication stays proactive and clear.</div></div>
+        </div>
+        <div class="badge-row"><span class="badge">Lead routing</span><span class="badge">Lifecycle automation</span><span class="badge">Ticket pipelines</span><span class="badge">Renewal workflows</span><span class="badge">Reporting dashboards</span></div>
+      </div>
+      <div class="glass card reveal">
+        <h3>Expected Outcomes</h3>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-label">Faster Engagement</div><p>Every inquiry receives immediate acknowledgement, source tagging, assignment, and next-step automation.</p></div>
+          <div class="timeline-item"><div class="timeline-label">Higher Conversion</div><p>Leasing leads move from inquiry to tour to application to signed lease through a more controlled pipeline.</p></div>
+          <div class="timeline-item"><div class="timeline-label">Stronger Coordination</div><p>Maintenance, leasing, and client-facing communication operate from shared status logic rather than manual follow-up.</p></div>
+          <div class="timeline-item"><div class="timeline-label">Better Visibility</div><p>Managers can track response speed, ticket health, renewal timing, and portfolio activity without pulling information from different places.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="workflows">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="kicker">Workflow Architecture</span><h2>Core automations for leasing, tenant support, and portfolio operations.</h2></div>
+      <p class="section-copy">The workflow structure below is designed to give the business speed, consistency, and accountability across the full resident and owner journey.</p>
+    </div>
+    <div class="workflow-grid">
+      <div class="glass card reveal">
+        <h3>Primary Workflow System</h3>
+        <div class="vertical-flow">
+          <div class="flow-step" data-step="01"><strong>Inquiry Intake & Source Management</strong>Capture leads from forms, listing portals, referrals, and advertising channels, then standardize source data, property interest, timeline, and lead type.</div>
+          <div class="flow-step" data-step="02"><strong>Qualification & Assignment</strong>Route inquiries based on criteria such as property type, budget, move-in date, geography, and service line to the correct person or team.</div>
+          <div class="flow-step" data-step="03"><strong>Viewing & Application Automation</strong>Trigger follow-up sequences, appointment reminders, and application progression with clear stage movement and task creation.</div>
+          <div class="flow-step" data-step="04"><strong>Resident Onboarding</strong>Move approved applicants into onboarding with document reminders, payment instructions, welcome communication, and move-in readiness tracking.</div>
+          <div class="flow-step" data-step="05"><strong>Maintenance Request Management</strong>Convert service submissions into prioritized tickets with category logic, SLA targets, vendor routing, internal escalation, and status automation.</div>
+          <div class="flow-step" data-step="06"><strong>Renewal & Retention Automation</strong>Trigger outreach at defined lease milestones, surface at-risk residents, and create internal actions to protect occupancy and retention.</div>
+        </div>
+      </div>
+      <div class="glass card reveal">
+        <h3>Detailed Workflow Modules</h3>
+        <details open><summary>Owner & Landlord Intake <span>+</span></summary><div class="content">Capture owner inquiries, management requests, or portfolio opportunities. Score leads based on portfolio size, location, service interest, and urgency. Trigger consultation handoff, reminders, and nurture logic.<div class="chip-list"><span class="chip">Owner intake</span><span class="chip">Lead scoring</span><span class="chip">Consultation routing</span></div></div></details>
+        <details><summary>Leasing & Resident Lifecycle <span>+</span></summary><div class="content">Automate the journey from prospect to applicant to approved tenant to active resident with branch logic for missing documents, delayed steps, incomplete applications, and onboarding completion.<div class="chip-list"><span class="chip">Leasing pipeline</span><span class="chip">Application logic</span><span class="chip">Resident onboarding</span></div></div></details>
+        <details><summary>Maintenance & Vendor Routing <span>+</span></summary><div class="content">Route maintenance issues by urgency, category, and property. Notify residents, assign vendors, track overdue work, and escalate when SLA windows are at risk.<div class="chip-list"><span class="chip">Service tickets</span><span class="chip">Vendor assignment</span><span class="chip">Escalation rules</span></div></div></details>
+        <details><summary>Renewals & Occupancy Protection <span>+</span></summary><div class="content">Trigger structured outreach 120, 90, and 60 days before lease end. Combine service history and communication activity to identify accounts that need attention before renewal risk increases.<div class="chip-list"><span class="chip">Renewal stages</span><span class="chip">Retention alerts</span><span class="chip">Occupancy forecasting</span></div></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dashboards">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="kicker">Reporting & Dashboards</span><h2>Leadership visibility across leasing, service delivery, and retention.</h2></div>
+      <p class="section-copy">Reporting should make it easy to understand where conversion is slowing, where service performance is slipping, and where occupancy needs attention.</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="glass card reveal">
+        <h3>Leasing & Portfolio Funnel</h3>
+        <div class="funnel">
+          <div class="funnel-stage"><em>Inbound inquiries</em><strong>2,400</strong></div>
+          <div class="funnel-stage"><em>Qualified leads</em><strong>1,480</strong></div>
+          <div class="funnel-stage"><em>Tours scheduled</em><strong>1,020</strong></div>
+          <div class="funnel-stage"><em>Applications submitted</em><strong>640</strong></div>
+          <div class="funnel-stage"><em>Signed leases</em><strong>310</strong></div>
+        </div>
+        <p style="margin-top:18px">This view helps identify where response, qualification, tour conversion, or application completion needs improvement.</p>
+      </div>
+      <div class="glass card reveal">
+        <h3>Operational Performance</h3>
+        <div class="kpi-wall">
+          <div class="kpi"><div class="num">6m</div><div>Average first-response target for new inquiries</div></div>
+          <div class="kpi"><div class="num">91%</div><div>Maintenance tickets updated within target SLA</div></div>
+          <div class="kpi"><div class="num">74%</div><div>Renewal outreach completed before critical deadline</div></div>
+          <div class="kpi"><div class="num">18%</div><div>Projected reduction in manual follow-up workload</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:20px">
+      <div class="glass card reveal">
+        <h3>Occupancy & Revenue View</h3>
+        <p>Track active leases, vacancy periods, renewal timing, and portfolio-level leasing velocity across the managed property base.</p>
+        <div class="bar-chart"><div class="bar" style="height:58%"><span>58%</span></div><div class="bar" style="height:72%"><span>72%</span></div><div class="bar" style="height:84%"><span>84%</span></div><div class="bar" style="height:93%"><span>93%</span></div></div>
+        <div class="bar-labels"><div>Q1</div><div>Q2</div><div>Q3</div><div>Q4</div></div>
+      </div>
+      <div class="glass card reveal"><h3>Service Operations View</h3><ul class="clean"><li>Open maintenance tickets by priority, property, and vendor</li><li>Average time to assign, update, and close service issues</li><li>Escalation visibility for overdue or repeat problems</li></ul></div>
+      <div class="glass card reveal"><h3>Renewal & Experience View</h3><ul class="clean"><li>Upcoming renewals by month and property</li><li>Residents at risk based on service and communication signals</li><li>Owner communication coverage and portfolio attention points</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="implementation">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="kicker">Implementation Scope</span><h2>How the HubSpot environment would be structured and delivered.</h2></div>
+      <p class="section-copy">The implementation focuses on structure first, then automation, then reporting, so the system scales cleanly as usage grows.</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass card reveal"><h3>CRM Structure</h3><ul class="clean"><li>Custom fields for property type, unit status, lease dates, renewal windows, issue priority, and lead source</li><li>Relationships across contacts, owners, residents, properties, units, vendors, and service tickets</li><li>Clear lifecycle stages and pipeline definitions for leasing and support</li></ul></div>
+      <div class="glass card reveal"><h3>Workflow Library</h3><ul class="clean"><li>Lead intake, assignment, nurture, tour scheduling, application tracking, and onboarding</li><li>Maintenance routing, reminder logic, SLA alerts, and vendor handoffs</li><li>Renewal sequences, retention alerts, and manager escalation flows</li></ul></div>
+      <div class="glass card reveal"><h3>Communication Layer</h3><ul class="clean"><li>Resident and owner email templates, reminders, confirmations, and status notices</li><li>Internal alerts, task creation, and team queue management</li><li>Dashboard views for managers, leasing teams, and operational leadership</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="container">
+    <div class="glass card cta reveal">
+      <span class="kicker">Next Steps</span>
+      <h2 style="margin-bottom:14px">Recommended starting point for the build.</h2>
+      <p class="section-copy" style="margin-top:0;max-width:860px">Begin with discovery on the current lead sources, leasing stages, maintenance intake process, renewal timing, and owner communication requirements. From there, the HubSpot structure, workflow logic, reporting model, and rollout priorities can be finalized and implemented in a controlled sequence.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container footer">Prepared as a client-facing workflow and automation plan for a real estate property management business.</div>
+</main>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+const canvas=document.getElementById('scene');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+const scene=new THREE.Scene(); scene.fog=new THREE.FogExp2(0x07111f,0.085);
+const camera=new THREE.PerspectiveCamera(42,1,0.1,100); camera.position.set(0,2.5,10.5);
+const group=new THREE.Group(); scene.add(group);
+scene.add(new THREE.AmbientLight(0xa7d5ff,1.3));
+const key=new THREE.PointLight(0x68cfff,24,60,2); key.position.set(5,8,8); scene.add(key);
+const fill=new THREE.PointLight(0x7a6cff,18,60,2); fill.position.set(-7,-2,6); scene.add(fill);
+const rim=new THREE.PointLight(0x47efc8,20,60,2); rim.position.set(0,8,-8); scene.add(rim);
+const towerMat=new THREE.MeshPhysicalMaterial({color:0x8fd8ff,metalness:.56,roughness:.16,transparent:true,opacity:.92,transmission:.12,thickness:.7,clearcoat:1,clearcoatRoughness:.1,emissive:0x0a1b36,emissiveIntensity:.8});
+const accentMat=new THREE.MeshPhysicalMaterial({color:0x7a6cff,metalness:.42,roughness:.12,emissive:0x22115a,emissiveIntensity:1.1,clearcoat:1});
+const panelMat=new THREE.MeshPhysicalMaterial({color:0x0f2342,metalness:.65,roughness:.18,transmission:.04,clearcoat:1,emissive:0x07111f,emissiveIntensity:1.6});
+const wireMat=new THREE.MeshBasicMaterial({color:0x9fe2ff,wireframe:true,transparent:true,opacity:.16});
+const platform=new THREE.Mesh(new THREE.CylinderGeometry(3.75,4.45,.92,6,1,false),panelMat); platform.position.y=-1.2; group.add(platform);
+const innerPlatform=new THREE.Mesh(new THREE.CylinderGeometry(2.85,3.35,.18,6),new THREE.MeshPhysicalMaterial({color:0x173967,metalness:.8,roughness:.12,emissive:0x14335d,emissiveIntensity:1})); innerPlatform.position.y=-.7; group.add(innerPlatform);
+const buildings=new THREE.Group(); group.add(buildings); const boxGeo=new THREE.BoxGeometry(.92,1.8,.92); const edgeGeo=new THREE.EdgesGeometry(boxGeo);
+const buildingPositions=[[-1.9,.15,-1.2,1.9],[-.6,.45,-1.45,2.65],[1.0,-.05,-1.05,2.15],[-1.25,.32,.5,3.0],[.25,.9,.18,3.8],[1.95,.12,.56,2.42],[-.22,.25,1.6,2.0],[1.5,.42,1.78,3.25]];
+buildingPositions.forEach((pos,i)=>{const [x,y,z,h]=pos; const mesh=new THREE.Mesh(boxGeo,i%3===0?accentMat:towerMat); mesh.position.set(x,y+h/2-.1,z); mesh.scale.y=h/1.8; mesh.rotation.y=(i%2?1:-1)*.12; buildings.add(mesh); const edges=new THREE.LineSegments(edgeGeo,new THREE.LineBasicMaterial({color:i%2?0x9fe2ff:0x7a6cff,transparent:true,opacity:.24})); edges.position.copy(mesh.position); edges.scale.copy(mesh.scale).multiplyScalar(1.01); edges.rotation.copy(mesh.rotation); buildings.add(edges);});
+const pulseRings=new THREE.Group(); group.add(pulseRings); for(let i=0;i<3;i++){const ring=new THREE.Mesh(new THREE.TorusGeometry(2.25+i*.56,.026,10,120),new THREE.MeshBasicMaterial({color:i===1?0x47efc8:0x68cfff,transparent:true,opacity:.44-i*.08})); ring.rotation.x=Math.PI/2; ring.position.y=-.45+i*.12; pulseRings.add(ring);}
+const orbitGroup=new THREE.Group(); group.add(orbitGroup); const orbitPaths=[{r:4.15,speed:.42,y:.55,color:0x68cfff,size:.14},{r:3.3,speed:-.65,y:1.25,color:0x7a6cff,size:.11},{r:2.65,speed:.85,y:2.15,color:0x47efc8,size:.09}];
+const orbiters=orbitPaths.map((cfg,idx)=>{const torus=new THREE.Mesh(new THREE.TorusGeometry(cfg.r,.012,4,180),new THREE.MeshBasicMaterial({color:cfg.color,transparent:true,opacity:.22})); torus.rotation.x=Math.PI/2.3+idx*.08; torus.rotation.z=idx*.35; torus.position.y=cfg.y; orbitGroup.add(torus); const orb=new THREE.Mesh(new THREE.SphereGeometry(cfg.size,24,24),new THREE.MeshBasicMaterial({color:cfg.color})); orbitGroup.add(orb); return {cfg,torus,orb};});
+const nodesGroup=new THREE.Group(); group.add(nodesGroup); const nodeGeo=new THREE.SphereGeometry(.05,16,16); const nodeMat=new THREE.MeshBasicMaterial({color:0xffffff}); const lineMat=new THREE.LineBasicMaterial({color:0x86d8ff,transparent:true,opacity:.16});
+const nodePoints=[new THREE.Vector3(-1.9,2.85,-1.2),new THREE.Vector3(-.6,3.72,-1.45),new THREE.Vector3(1.0,3.02,-1.05),new THREE.Vector3(-1.25,4.1,.5),new THREE.Vector3(.25,5.05,.18),new THREE.Vector3(1.95,3.35,.56),new THREE.Vector3(-.22,2.95,1.6),new THREE.Vector3(1.5,4.56,1.78)];
+nodePoints.forEach(point=>{const node=new THREE.Mesh(nodeGeo,nodeMat); node.position.copy(point); nodesGroup.add(node);});
+for(let i=0;i<nodePoints.length;i++){for(let j=i+1;j<nodePoints.length;j++){if(nodePoints[i].distanceTo(nodePoints[j])<3.25){nodesGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([nodePoints[i],nodePoints[j]]),lineMat));}}}
+const halo=new THREE.Mesh(new THREE.IcosahedronGeometry(2.2,1),wireMat); halo.position.y=2.25; halo.scale.setScalar(1.05); group.add(halo);
+const stars=new THREE.Group(); scene.add(stars); const starGeo=new THREE.SphereGeometry(.02,8,8);
+for(let i=0;i<120;i++){const star=new THREE.Mesh(starGeo,new THREE.MeshBasicMaterial({color:i%4===0?0x7a6cff:i%3===0?0x47efc8:0xa8e4ff,transparent:true,opacity:Math.random()*.8+.2})); star.position.set((Math.random()-.5)*24,Math.random()*14-2,(Math.random()-.5)*24); stars.add(star);}
+let mouseX=0,mouseY=0,targetX=0,targetY=0;
+window.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect(); mouseX=((e.clientX-rect.left)/rect.width)*2-1; mouseY=((e.clientY-rect.top)/rect.height)*2-1;});
+function resize(){const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();}
+window.addEventListener('resize',resize); resize();
+const clock=new THREE.Clock();
+function animate(){const t=clock.getElapsedTime(); targetX+=(mouseX-targetX)*.035; targetY+=(mouseY-targetY)*.035; group.rotation.y=t*.18+targetX*.3; group.rotation.x=-.08+targetY*.12; group.position.y=Math.sin(t*.9)*.08; buildings.children.forEach((child,i)=>{child.position.y+=Math.sin(t*1.2+i*.45)*.0017;}); orbiters.forEach(({cfg,torus,orb},i)=>{const a=t*cfg.speed+i*1.4; const tilt=torus.rotation.x; const rz=torus.rotation.z; const x=Math.cos(a)*cfg.r; const z=Math.sin(a)*cfg.r; orb.position.set(x*Math.cos(rz)-z*Math.sin(rz),cfg.y+Math.sin(a*2)*.15,x*Math.sin(rz)+z*Math.cos(rz)); orb.position.applyAxisAngle(new THREE.Vector3(1,0,0),tilt-Math.PI/2);}); pulseRings.children.forEach((ring,i)=>{ring.material.opacity=.16+(Math.sin(t*1.8+i)+1)*.12; ring.scale.setScalar(1+Math.sin(t*1.2+i*.5)*.025);}); halo.rotation.x=t*.15; halo.rotation.y=-t*.22; halo.rotation.z=t*.09; stars.children.forEach((star,i)=>{star.position.y+=Math.sin(t*.18+i)*.0008;}); camera.position.x=targetX*.75; camera.position.y=2.5+targetY*-.45; camera.lookAt(0,1.4,0); renderer.render(scene,camera); requestAnimationFrame(animate);}
+animate();
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('visible');});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
